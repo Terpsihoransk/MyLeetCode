@@ -16,11 +16,8 @@ public class PalindromeNumber {
         int reversedNumber = 0;
 
         while (x > 0) {
-            // Последняя цифра из числа (остаток от деления на 10)
             int digit = x % 10;
-            // Сдвигаем цифры перевёрнутого числа на один десятичный разряд влево
             reversedNumber = reversedNumber * 10 + digit;
-            // Удаляем последнюю цифру из исходного числа
             x /= 10;
         }
         return originalNumber == reversedNumber;
@@ -32,6 +29,7 @@ public class PalindromeNumber {
             return false;
         int originalNumber = x;
         int reversedNumber = 0;
+
         while (x > 0) {
             reversedNumber = (reversedNumber * 10) + (x % 10);
             x = x / 10;
@@ -43,7 +41,8 @@ public class PalindromeNumber {
     public static boolean isPalindromeString(int x) {
         String text = String.valueOf(x);
         return text.equalsIgnoreCase(new StringBuilder(text)
-                .reverse().toString());
+                .reverse()
+                .toString());
     }
 
     // Чистое определение является ли строка палиндромом
@@ -54,6 +53,7 @@ public class PalindromeNumber {
                 .toCharArray();
         var left = 0;
         var right = chars.length - 1;
+
         while (left < right) {
             if (chars[left] != chars[right]) {
                 return false;
